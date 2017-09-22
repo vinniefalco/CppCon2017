@@ -13,11 +13,13 @@ set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
 source_group ("" FILES main.cpp)
 
-set(CMAKE_CXX_STANDARD 11)
-
 if (MSVC)
+    set(CMAKE_CXX_STANDARD 17)
     add_definitions (-D_SCL_SECURE_NO_WARNINGS=1)
     add_definitions (-D_CRT_SECURE_NO_WARNINGS=1)
+    add_compile_options(/std:c++17)
+else ()
+    add_compile_options(-std=c++17)
 endif()
 
 add_executable (cppcon2017
